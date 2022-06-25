@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dual Forms With Nav Tabs</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="tabs">
+      <div class="tab_header">
+        <div class="active"><i class="bx bxs-user"></i>Login</div>
+        <div><i class="bx bxs-user-plus"></i>Sign Up</div>
+      </div>
+
+      <div class="tab_indicator"></div>
+
+      <div class="tab_body">
+        <section class="active">
+          <h2>Sign in here..!</h2>
+          <form>
+            <div class="inputBox">
+              <input type="text" name="" required="" />
+              <label>Username</label>
+            </div>
+
+            <div class="inputBox">
+              <input type="password" name="" required="" />
+              <label>Password</label>
+            </div>
+
+            <input type="submit" name="" value="Submit" />
+          </form>
+        </section>
+
+        <section>
+          <h2>Create your new account here..!</h2>
+          <form>
+            <div class="inputBox">
+              <input type="text" name="" required="" />
+              <label>Username</label>
+            </div>
+
+            <div class="inputBox">
+              <input type="emai;" name="" required="" />
+              <label>Email</label>
+            </div>
+
+            <div class="inputBox">
+              <input type="password" name="" required="" />
+              <label>Password</label>
+            </div>
+
+            <div class="inputBox">
+              <input type="password" name="" required="" />
+              <label>Confirm Password</label>
+            </div>
+
+            <input type="submit" name="" value="Submit" />
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      let tabHeader = document.getElementsByClassName("tab_header")[0];
+      let tabIndicator = document.getElementsByClassName("tab_indicator")[0];
+      let tabBody = document.getElementsByClassName("tab_body")[0];
+
+      let tabPanel = tabHeader.getElementsByTagName("div");
+
+      for (let i = 0; i < tabPanel.length; i++) {
+        tabPanel[i].addEventListener("click", function () {
+          tabHeader
+            .getElementsByClassName("active")[0]
+            .classList.remove("active");
+          tabPanel[i].classList.add("active");
+
+          tabBody
+            .getElementsByClassName("active")[0]
+            .classList.remove("active");
+          tabBody.getElementsByTagName("section")[i].classList.add("active");
+
+          tabIndicator.style.left = `calc(calc(100% / 2) * ${i})`;
+        });
+      }
+    </script>
+  </body>
+</html>
